@@ -1,4 +1,5 @@
-import { InputHTMLAttributes, useState } from 'react'
+import { useState } from 'react'
+import type { InputHTMLAttributes } from 'react'
 import type { UseFormRegister, RegisterOptions, FieldValues, FieldPath } from 'react-hook-form'
 
 interface Props<TFieldValues extends FieldValues> extends InputHTMLAttributes<HTMLInputElement> {
