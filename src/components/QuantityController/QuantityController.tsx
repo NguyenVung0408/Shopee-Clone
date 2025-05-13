@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import InputNumber from '../InputNumber'
-import type { InputNumberProps } from '../InputNumber'
+import InputNumber, { InputNumberProps } from '../InputNumber'
 
 interface Props extends InputNumberProps {
   max?: number
@@ -12,15 +11,15 @@ interface Props extends InputNumberProps {
 }
 
 export default function QuantityController({
-  max,
-  onIncrease,
-  onDecrease,
-  onType,
-  onFocusOut,
-  classNameWrapper = 'ml-10',
-  value,
-  ...rest
-}: Props) {
+                                             max,
+                                             onIncrease,
+                                             onDecrease,
+                                             onType,
+                                             onFocusOut,
+                                             classNameWrapper = 'ml-10',
+                                             value,
+                                             ...rest
+                                           }: Props) {
   const [localValue, setLocalValue] = useState<number>(Number(value || 0))
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let _value = Number(event.target.value)

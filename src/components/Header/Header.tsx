@@ -9,7 +9,7 @@ import purchaseApi from 'src/apis/purchase.api'
 import noproduct from 'src/assets/images/no-product.png'
 import { formatCurrency } from 'src/utils/utils'
 import NavHeader from '../NavHeader'
-import useSearchProducts from 'src/hooks/useSearchProducts'
+import useSearchProducts from '../../hooks/useSearchProducts'
 
 const MAX_PURCHASES = 5
 export default function Header() {
