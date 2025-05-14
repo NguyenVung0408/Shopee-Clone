@@ -1,4 +1,5 @@
-import { forwardRef, InputHTMLAttributes, useState } from 'react'
+import { forwardRef, useState } from 'react'
+import type { InputHTMLAttributes } from 'react'
 
 export interface InputNumberProps extends InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string

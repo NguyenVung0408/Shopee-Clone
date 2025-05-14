@@ -75,7 +75,7 @@ export default function Header() {
                     <div className='p-2'>
                       <div className='capitalize text-gray-400'>Sản phẩm mới thêm</div>
                       <div className='mt-5'>
-                        {purchasesInCart.slice(0, MAX_PURCHASES).map((purchase) => (
+                        {purchasesInCart.slice(0, MAX_PURCHASES).map((purchase: { _id: string; product: { image: string; name: string; price: number } }) => (
                           <div className='mt-2 flex py-2 hover:bg-gray-100' key={purchase._id}>
                             <div className='flex-shrink-0'>
                               <img

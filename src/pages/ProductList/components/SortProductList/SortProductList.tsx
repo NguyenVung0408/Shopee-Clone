@@ -7,7 +7,7 @@ import path from 'src/constants/path'
 import omit from 'lodash/omit'
 interface Props {
   queryConfig: QueryConfig
-  pageSize: number
+  pageSize: number  
 }
 
 export default function SortProductList({ queryConfig, pageSize }: Props) {

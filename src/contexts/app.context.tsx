@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react'
-import type { ExtendedPurchase } from '../types/purchase.type'
-import type { User } from 'src/types/user.type'
+import type { ExtendedPurchase } from 'src/types/purchase.type'
+import type  { User } from 'src/types/user.type'
 import { getAccessTokenFromLS, getProfileFromLS } from 'src/utils/auth'
 
 interface AppContextInterface {

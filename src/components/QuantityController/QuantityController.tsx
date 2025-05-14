@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import InputNumber, { InputNumberProps } from '../InputNumber'
+import InputNumber from '../InputNumber'
+import type { InputNumberProps } from '../InputNumber'
 
 interface Props extends InputNumberProps {
   max?: number
@@ -11,15 +12,15 @@ interface Props extends InputNumberProps {
 }
 
 export default function QuantityController({
-                                             max,
-                                             onIncrease,
-                                             onDecrease,
-                                             onType,
-                                             onFocusOut,
-                                             classNameWrapper = 'ml-10',
-                                             value,
-                                             ...rest
-                                           }: Props) {
+  max,
+  onIncrease,
+  onDecrease,
+  onType,
+  onFocusOut,
+  classNameWrapper = 'ml-10',
+  value,
+  ...rest
+}: Props) {
   const [localValue, setLocalValue] = useState<number>(Number(value || 0))
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let _value = Number(event.target.value)
@@ -28,7 +29,9 @@ export default function QuantityController({
     } else if (_value < 1) {
       _value = 1
     }
-    onType && onType(_value)
+    if (onType) {
+      onType(_value)
+    }
     setLocalValue(_value)
   }
 
@@ -37,7 +40,9 @@ export default function QuantityController({
     if (max !== undefined && _value > max) {
       _value = max
     }
-    onIncrease && onIncrease(_value)
+    if (onIncrease) {
+      onIncrease(_value)
+    }
     setLocalValue(_value)
   }
 
@@ -46,12 +51,16 @@ export default function QuantityController({
     if (_value < 1) {
       _value = 1
     }
-    onDecrease && onDecrease(_value)
+    if (onDecrease) {
+      onDecrease(_value)
+    }
     setLocalValue(_value)
   }
 
   const handleBlur = (event: React.FocusEvent<HTMLInputElement, Element>) => {
-    onFocusOut && onFocusOut(Number(event.target.value))
+    if (onFocusOut) {
+      onFocusOut(Number(event.target.value))
+    }
   }
 
   return (
